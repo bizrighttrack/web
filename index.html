@@ -50,9 +50,13 @@
 
         /* HERO SECTION */
         .hero {
-            background: linear-gradient(rgba(15, 59, 59, 0.85), rgba(15, 59, 59, 0.7)), url('1000189017.jpg');
+            /* Fallback color */
+            background-color: var(--primary-col);
+            /* Linear Gradient Overlay (Dimmer) + Image */
+            background-image: linear-gradient(rgba(15, 59, 59, 0.70), rgba(15, 59, 59, 0.50)), url('1000189017.jpg');
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             color: white;
             padding: 100px 5%;
             text-align: center;
@@ -64,6 +68,8 @@
         }
         .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
         .hero p { font-size: 1.25rem; max-width: 700px; margin-bottom: 2rem; color: #e2e8f0; }
+        .hero-logo { width: 150px; margin-bottom: 30px; }
+        
         .btn {
             padding: 12px 24px;
             border-radius: 4px;
@@ -102,14 +108,10 @@
 
         /* ABOUT */
         .about-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-            max-width: 1200px;
+            text-align: center;
+            max-width: 800px;
             margin: 0 auto;
         }
-        .about-img { width: 100%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         
         /* APPROACH (ICONS) */
         .bg-light { background-color: var(--bg-light); }
@@ -161,6 +163,7 @@
         }
         .team-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 4px solid var(--soft-teal); }
         .team-role { color: var(--soft-teal); font-weight: bold; font-size: 0.9rem; margin-bottom: 5px; display: block; }
+        .btn-group { display: flex; flex-direction: column; align-items: center; gap: 5px; width: 100%; }
 
         /* FOOTER */
         footer {
@@ -172,7 +175,6 @@
         .footer-link { color: var(--accent-col); text-decoration: none; }
 
         @media (max-width: 768px) {
-            .about-container { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2rem; }
             nav { flex-direction: column; gap: 10px; }
             .nav-links { margin-top: 10px; }
@@ -181,7 +183,7 @@
 </head>
 <body>
 
-<!-- NAV -->
+
 <nav>
     <div class="logo">RIGHT TRACK</div>
     <div class="nav-links">
@@ -192,31 +194,27 @@
     </div>
 </nav>
 
-<!-- HERO -->
+
 <section class="hero">
+    <!-- New Image Added Here -->
+    <img src="1000189017.jpg" alt="Right Track Logo" class="hero-logo">
     <h1>RIGHT TRACK</h1>
     <p>Empowering organizations through evidence-based research, ESG assessments, and people-centred solutions.</p>
     <div>
         <a href="#contact" class="btn btn-primary">Get in Touch</a>
-        <a href="#" class="btn btn-outline">Download Profile</a>
     </div>
 </section>
 
-<!-- ABOUT -->
+
 <section id="about">
     <div class="about-container">
-        <div>
-            <h2 class="section-title" style="text-align: left; margin: 0 0 20px 0;">Who We Are</h2>
-            <p>Right Track is a multidisciplinary consulting firm specialising in <strong>ESG assessments, sustainability audits, organizational research, HR advisory, and training & development.</strong></p>
-            <p>We combine academic rigour in organizational behaviour with practical experience in environmental economics to deliver objective, actionable recommendations for industry.</p>
-        </div>
-        <div>
-            <img src="1000189016.jpg" alt="About Right Track" class="about-img">
-        </div>
+        <h2 class="section-title">Who We Are</h2>
+        <p>Right Track is a multidisciplinary consulting firm specialising in <strong>ESG assessments, sustainability audits, organizational research, HR advisory, and training & development.</strong></p>
+        <p>We combine academic rigour in organizational behaviour with practical experience in environmental economics to deliver objective, actionable recommendations for industry.</p>
     </div>
 </section>
 
-<!-- APPROACH -->
+
 <section class="bg-light">
     <h2 class="section-title">Our Approach</h2>
     <div class="grid-3">
@@ -238,7 +236,7 @@
     </div>
 </section>
 
-<!-- SERVICES -->
+
 <section id="services">
     <h2 class="section-title">Services</h2>
     <div class="grid-3">
@@ -275,7 +273,7 @@
     </div>
 </section>
 
-<!-- DELIVERABLES -->
+
 <section class="bg-light">
     <h2 class="section-title">Key Deliverables</h2>
     <div class="deliverables-grid">
@@ -288,32 +286,44 @@
     </div>
 </section>
 
-<!-- TEAM -->
+
 <section id="team">
     <h2 class="section-title">Leadership</h2>
     <div class="team-container">
-        <!-- Debasis Gupta -->
-        <div class="team-member">
+        
+
+<div class="team-member">
             <img src="DEBASIS GUPTA PHOTO.jpg" alt="Debasis Gupta" class="team-img">
             <h3>Debasis Gupta</h3>
             <span class="team-role">Chief Business Consultant</span>
             <p>Environmental Economics & Industrial Relations</p>
+            <div class="btn-group">
+                <a href="https://www.linkedin.com/in/debasis-gupta-4591b1b/" target="_blank" class="btn btn-outline-dark" style="margin-top: 10px; font-size: 0.9rem;">
+                    <i class="fab fa-linkedin"></i> LinkedIn Profile
+                </a>
+            </div>
         </div>
         
-        <!-- Abhishek Gupta -->
-        <div class="team-member">
+        
+
+<div class="team-member">
             <img src="Abhishek Gupta photo.png" alt="Abhishek Gupta" class="team-img">
             <h3>Abhishek Gupta</h3>
             <span class="team-role">Principal Research Consultant</span>
             <p>Organizational Behaviour & HRM</p>
-            <a href="https://calendly.com/guptaabhishek/meet" target="_blank" class="btn btn-outline-dark" style="margin-top: 10px; font-size: 0.9rem;">
-                <i class="fas fa-calendar-check"></i> Schedule Meeting
-            </a>
+            <div class="btn-group">
+                <a href="https://calendly.com/guptaabhishek/meet" target="_blank" class="btn btn-outline-dark" style="margin-top: 10px; font-size: 0.9rem;">
+                    <i class="fas fa-calendar-check"></i> Schedule Meeting
+                </a>
+                <a href="https://www.linkedin.com/in/r-abhishekgupta/" target="_blank" class="btn btn-outline-dark" style="margin-top: 5px; font-size: 0.9rem;">
+                    <i class="fab fa-linkedin"></i> LinkedIn Profile
+                </a>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- FOOTER / CONTACT -->
+
 <section id="contact" style="background: var(--primary-col); color: white; padding-bottom: 20px;">
     <h2 class="section-title" style="color: white; border-color: white;">Get In Touch</h2>
     <div style="text-align: center; max-width: 600px; margin: 0 auto;">
