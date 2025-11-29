@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Right Track</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* BRAND VARIABLES */
+        :root {
+            --primary-col: #0F3B3B;
+            --accent-col: #2FB24A;
+            --soft-teal: #24A5B1;
+            --text-dark: #222222;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            margin-top: 0;
+        }
+
+        /* NAVIGATION */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo { font-weight: 700; font-size: 1.2rem; color: var(--primary-col); letter-spacing: 1px; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); margin-left: 20px; font-weight: 600; }
+        .nav-links a.cta { color: var(--accent-col); }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(15, 59, 59, 0.85), rgba(15, 59, 59, 0.7)), url('http://googleusercontent.com/image_collection/image_retrieval/1890277101083865334');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 5%;
+            text-align: center;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.25rem; max-width: 700px; margin-bottom: 2rem; color: #e2e8f0; }
+        .btn {
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin: 5px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .btn-primary { background: var(--accent-col); color: white; border: none; }
+        .btn-outline { border: 2px solid white; color: white; }
+        .btn-outline-dark { border: 2px solid var(--soft-teal); color: var(--soft-teal); background: transparent; }
+        
+        .btn-primary:hover { opacity: 0.9; }
+        .btn-outline:hover { background: white; color: var(--primary-col); }
+        .btn-outline-dark:hover { background: var(--soft-teal); color: white; }
+
+        /* SECTIONS GENERAL */
+        section { padding: 60px 5%; }
+        .section-title {
+            text-align: center;
+            color: var(--primary-col);
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-col);
+            margin: 10px auto;
+        }
+
+        /* ABOUT */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .about-img { width: 100%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        
+        /* APPROACH (ICONS) */
+        .bg-light { background-color: var(--bg-light); }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--accent-col);
+        }
+        .card-icon { font-size: 2.5rem; color: var(--soft-teal); margin-bottom: 15px; }
+
+        /* SERVICES */
+        .service-list li { margin-bottom: 8px; list-style-type: none; }
+        .service-list li::before { content: "•"; color: var(--accent-col); font-weight: bold; display: inline-block; width: 1em; margin-left: -1em; }
+
+        /* DELIVERABLES */
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .check-item { background: var(--bg-light); padding: 15px; border-radius: 5px; display: flex; align-items: center; gap: 10px; }
+        .check-icon { color: var(--accent-col); }
+
+        /* TEAM */
+        .team-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .team-member { 
+            text-align: center; 
+            max-width: 300px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .team-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 4px solid var(--soft-teal); }
+        .team-role { color: var(--soft-teal); font-weight: bold; font-size: 0.9rem; margin-bottom: 5px; display: block; }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary-col);
+            color: white;
+            text-align: center;
+            padding: 40px 5%;
+        }
+        .footer-link { color: var(--accent-col); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .about-container { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2rem; }
+            nav { flex-direction: column; gap: 10px; }
+            .nav-links { margin-top: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="logo">RIGHT TRACK</div>
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#team">Team</a>
+        <a href="#contact" class="cta">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>RIGHT TRACK</h1>
+    <p>Empowering organizations through evidence-based research, ESG assessments, and people-centred solutions.</p>
+    <div>
+        <a href="#contact" class="btn btn-primary">Get in Touch</a>
+        <a href="#" class="btn btn-outline">Download Profile</a>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="about-container">
+        <div>
+            <h2 class="section-title" style="text-align: left; margin: 0 0 20px 0;">Who We Are</h2>
+            <p>Right Track is a multidisciplinary consulting firm specialising in <strong>ESG assessments, sustainability audits, organizational research, HR advisory, and training & development.</strong></p>
+            <p>We combine academic rigour in organizational behaviour with practical experience in environmental economics to deliver objective, actionable recommendations for industry.</p>
+        </div>
+    </div>
+</section>
+
+<!-- APPROACH -->
+<section class="bg-light">
+    <h2 class="section-title">Our Approach</h2>
+    <div class="grid-3">
+        <div class="card">
+            <i class="fas fa-chart-line card-icon"></i>
+            <h3>Evidence-led</h3>
+            <p>Data collection, structured analysis, and clear metrics.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-scale-balanced card-icon"></i>
+            <h3>Independent</h3>
+            <p>Third-party assessments and confidential reporting.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-bullseye card-icon"></i>
+            <h3>Actionable</h3>
+            <p>Practical roadmaps tailored to operational realities.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+    <h2 class="section-title">Services</h2>
+    <div class="grid-3">
+        <div class="card" style="text-align: left;">
+            <i class="fas fa-leaf card-icon" style="font-size: 1.5rem;"></i>
+            <h3>ESG Assessments</h3>
+            <ul class="service-list">
+                <li>ESG audits (BRSR, GRI, SASB)</li>
+                <li>On-site worker interviews</li>
+                <li>Compliance gap analysis</li>
+                <li>Sustainability reporting</li>
+            </ul>
+        </div>
+        <div class="card" style="text-align: left;">
+            <i class="fas fa-users-viewfinder card-icon" style="font-size: 1.5rem;"></i>
+            <h3>Org. Research</h3>
+            <ul class="service-list">
+                <li>Workplace diagnostics</li>
+                <li>Employee experience studies</li>
+                <li>IR mapping & labour climate</li>
+                <li>Grounded HRM/OB research</li>
+            </ul>
+        </div>
+        <div class="card" style="text-align: left;">
+            <i class="fas fa-chalkboard-user card-icon" style="font-size: 1.5rem;"></i>
+            <h3>Training</h3>
+            <ul class="service-list">
+                <li>Leadership training</li>
+                <li>Team cohesion & communication</li>
+                <li>Workplace safety training</li>
+                <li>ESG awareness programs</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="bg-light">
+    <h2 class="section-title">Key Deliverables</h2>
+    <div class="deliverables-grid">
+        <div class="check-item"><i class="fas fa-check-circle check-icon"></i> ESG Audit Reports</div>
+        <div class="check-item"><i class="fas fa-check-circle check-icon"></i> BRSR Disclosures</div>
+        <div class="check-item"><i class="fas fa-check-circle check-icon"></i> Gap Analysis</div>
+        <div class="check-item"><i class="fas fa-check-circle check-icon"></i> Actionable Roadmaps</div>
+        <div class="check-item"><i class="fas fa-check-circle check-icon"></i> Training Modules</div>
+        <div class="check-item"><i class="fas fa-check-circle check-icon"></i> Stakeholder Summaries</div>
+    </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+    <h2 class="section-title">Leadership</h2>
+    <div class="team-container">
+        <!-- Debasis Gupta -->
+        <div class="team-member">
+            <img src="DEBASIS GUPTA PHOTO.jpg" alt="Debasis Gupta" class="team-img">
+            <h3>Debasis Gupta</h3>
+            <span class="team-role">Chief Business Consultant</span>
+            <p>Environmental Economics & Industrial Relations</p>
+        </div>
+        
+        <!-- Abhishek Gupta -->
+        <div class="team-member">
+            <img src="Abhishek Gupta photo.png" alt="Abhishek Gupta" class="team-img">
+            <h3>Abhishek Gupta</h3>
+            <span class="team-role">Principal Research Consultant</span>
+            <p>Organizational Behaviour & HRM</p>
+            <a href="https://calendly.com/guptaabhishek/meet" target="_blank" class="btn btn-outline-dark" style="margin-top: 10px; font-size: 0.9rem;">
+                <i class="fas fa-calendar-check"></i> Schedule Meeting
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER / CONTACT -->
+<section id="contact" style="background: var(--primary-col); color: white; padding-bottom: 20px;">
+    <h2 class="section-title" style="color: white; border-color: white;">Get In Touch</h2>
+    <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <p style="font-size: 1.2rem; margin-bottom: 30px;">Ready to align your organization with the Right Track?</p>
+        
+        <div style="display: flex; justify-content: center; gap: 40px; margin-bottom: 40px; flex-wrap: wrap;">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <i class="fas fa-envelope" style="color: var(--accent-col); font-size: 1.5rem; margin-bottom: 10px;"></i>
+                <a href="mailto:bizrighttrack@gmail.com" class="btn btn-outline">bizrighttrack@gmail.com</a>
+            </div>
+            <div>
+                <i class="fas fa-map-marker-alt" style="color: var(--accent-col); font-size: 1.5rem; margin-bottom: 10px;"></i>
+                <p>New Delhi & Kolkata, India</p>
+            </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px;">
+            <p style="margin: 0; font-size: 0.9rem;">
+                Right Track © 2025<br>
+                <em>"We handle all engagements with strict confidentiality. NDAs available upon request."</em>
+            </p>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
