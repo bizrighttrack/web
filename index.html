@@ -32,44 +32,22 @@
             margin-top: 0;
         }
 
-        /* NAVIGATION */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            background: var(--white);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .logo { font-weight: 700; font-size: 1.2rem; color: var(--primary-col); letter-spacing: 1px; }
-        .nav-links a { text-decoration: none; color: var(--text-dark); margin-left: 20px; font-weight: 600; }
-        .nav-links a.cta { color: var(--accent-col); }
+        /* NAVIGATION REMOVED */
 
         /* HERO SECTION */
         .hero {
-            /* Fallback color */
-            background-color: var(--primary-col);
-            /* Linear Gradient Overlay (Dimmer) + Image */
-            background-image: linear-gradient(rgba(15, 59, 59, 0.70), rgba(15, 59, 59, 0.50)), url('1000189017.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: white;
-            padding: 100px 5%;
-            text-align: center;
-            min-height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            line-height: 0; /* Removes gap below image */
         }
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.25rem; max-width: 700px; margin-bottom: 2rem; color: #e2e8f0; }
-        .hero-logo { width: 150px; margin-bottom: 30px; }
         
+        .hero img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .btn {
             padding: 12px 24px;
             border-radius: 4px;
@@ -90,6 +68,9 @@
 
         /* SECTIONS GENERAL */
         section { padding: 60px 5%; }
+        /* Reset hero section padding override */
+        section.hero { padding: 0; }
+
         .section-title {
             text-align: center;
             color: var(--primary-col);
@@ -176,33 +157,16 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
-            nav { flex-direction: column; gap: 10px; }
-            .nav-links { margin-top: 10px; }
+            /* nav styles removed */
         }
     </style>
 </head>
 <body>
 
-
-<nav>
-    <div class="logo">RIGHT TRACK</div>
-    <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#team">Team</a>
-        <a href="#contact" class="cta">Contact</a>
-    </div>
-</nav>
-
+<!-- NAV REMOVED -->
 
 <section class="hero">
-    <!-- New Image Added Here -->
-    <img src="1000189017.jpg" alt="Right Track Logo" class="hero-logo">
-    <h1>RIGHT TRACK</h1>
-    <p>Empowering organizations through evidence-based research, ESG assessments, and people-centred solutions.</p>
-    <div>
-        <a href="#contact" class="btn btn-primary">Get in Touch</a>
-    </div>
+    <img src="1000189018.png" alt="Right Track Banner">
 </section>
 
 
